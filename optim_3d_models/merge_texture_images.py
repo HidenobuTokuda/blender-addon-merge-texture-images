@@ -1,20 +1,18 @@
-import bpy   # アドオン開発者に対して用意しているAPIを利用する
+import bpy
 
-
-# アドオンに関する情報を保持する、bl_info変数
-bl_info = {
-    "name": "Merge texture images",
-    "author": "HT",
-    "version": (1, 0),
-    "blender": (4, 1, 0),
-    "location": "Outliner right click menu",
-    "description": "Merge texture images of selected objects",
-    "warning": "",
-    "support": "COMMUNITY",
-    "doc_url": "",
-    "tracker_url": "",
-    "category": "Object"
-}
+# bl_info = {
+    # "name": "Merge texture images",
+    # "author": "HT",
+    # "version": (1, 0),
+    # "blender": (4, 1, 0),
+    # "location": "Outliner right click menu",
+    # "description": "Merge texture images of selected objects",
+    # "warning": "",
+    # "support": "COMMUNITY",
+    # "doc_url": "",
+    # "tracker_url": "",
+    # "category": "Object"
+# }
 
 def main_merge_texture_images(operator, context):
     
@@ -226,7 +224,6 @@ class MergeTextureImagesOperator(bpy.types.Operator):
         layout.label(text="Save merged image")
         layout.prop(self, "image_save")
     
-    # メニューを実行したときに呼ばれる関数
     def execute(self, context):
         main_merge_texture_images(self, context)
         return {'FINISHED'}
@@ -238,7 +235,6 @@ class RemoveUnusedMaterialsOperator(bpy.types.Operator):
     bl_description = "Remove unused materials"
     bl_options = {'REGISTER', 'UNDO'}
 
-    # メニューを実行したときに呼ばれる関数
     def execute(self, context):
         remove_unused_materials()
         return {'FINISHED'}
@@ -250,7 +246,6 @@ class RemoveUnusedImagesOperator(bpy.types.Operator):
     bl_description = "Remove unused images"
     bl_options = {'REGISTER', 'UNDO'}
 
-    # メニューを実行したときに呼ばれる関数
     def execute(self, context):
         remove_unused_images()
         return {'FINISHED'}
@@ -265,35 +260,29 @@ class RemoveUnusedObjectsMenu(bpy.types.Menu):
         self.layout.operator(RemoveUnusedMaterialsOperator.bl_idname, text="Materials")
         self.layout.operator(RemoveUnusedImagesOperator.bl_idname, text="Images")
                 
-# メニューを構築する関数
-def menu_fn(self, context):
-    self.layout.separator()
-    self.layout.operator_context = "INVOKE_DEFAULT"
-    self.layout.operator(MergeTextureImagesOperator.bl_idname)
-    self.layout.menu(RemoveUnusedObjectsMenu.bl_idname)
+# def menu_fn(self, context):
+    # self.layout.separator()
+    # self.layout.operator_context = "INVOKE_DEFAULT"
+    # self.layout.operator(MergeTextureImagesOperator.bl_idname)
+    # self.layout.menu(RemoveUnusedObjectsMenu.bl_idname)
 
-# Blenderに登録するクラス
-classes = [
-    MergeTextureImagesOperator,
-    RemoveUnusedMaterialsOperator,
-    RemoveUnusedImagesOperator,
-    RemoveUnusedObjectsMenu,
-]
+# classes = [
+    # MergeTextureImagesOperator,
+    # RemoveUnusedMaterialsOperator,
+    # RemoveUnusedImagesOperator,
+    # RemoveUnusedObjectsMenu,
+# ]
 
-# アドオン有効化時の処理
-def register():
-    for c in classes:
-        bpy.utils.register_class(c)
-    bpy.types.OUTLINER_MT_object.append(menu_fn)
+# def register():
+    # for c in classes:
+        # bpy.utils.register_class(c)
+    # bpy.types.OUTLINER_MT_object.append(menu_fn)
 
 
-# アドオン無効化時の処理
-def unregister():
-    bpy.types.OUTLINER_MT_object.remove(menu_fn)
-    for c in classes:
-        bpy.utils.unregister_class(c)
+# def unregister():
+    # bpy.types.OUTLINER_MT_object.remove(menu_fn)
+    # for c in classes:
+        # bpy.utils.unregister_class(c)
 
-
-# メイン処理
-if __name__ == "__main__":
-    register()
+# if __name__ == "__main__":
+    # register()
