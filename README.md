@@ -1,17 +1,23 @@
-# Blender addon to merge texture images
-The addon allows you to merge texture images in one click
+# Blender addon to optimize 3D models
+The addon adds right click menus for optimizing selected objects. Currently it includes:
+1. Optimize image files
+2. Merge texture images
 
-<img width="674" alt="image" src="https://github.com/HidenobuTokuda/blender-addon-merge-texture-images/assets/10905600/97e97af5-c97c-404e-9431-00aeeebd41a2">
+    <img width="674" alt="image" src="https://github.com/HidenobuTokuda/blender-addon-merge-texture-images/assets/10905600/97e97af5-c97c-404e-9431-00aeeebd41a2">
 
 
 ## How to install
-1. Copy `addon_merge_texture_images.py` into Blender's addon folder.
-    * For Windows: `C:\Users\[Username]\AppData\Roaming\Blender Foundation\Blender\[Blender version]\scripts\addons`
-2. In Blender, go to Edit > Preferences > Add-ons. Check "Community" and search "Merge". Check `Object: Merge texture images`.
+1. Download [optim_3d_models.zip](https://github.com/HidenobuTokuda/blender-addon-optim-3d-models/releases/latest/download/optim_3d_models.zip)
+2. In Blender, go to Edit > Preferences > Add-ons. Click `Install...` button and select the downloaded zip file.
 
-    <img width="488" alt="image" src="https://github.com/HidenobuTokuda/blender-addon-merge-texture-images/assets/10905600/f0efd12b-b067-41fc-84d7-be76c4bb2af2">
+    <img width="413" alt="image" src="https://github.com/HidenobuTokuda/blender-addon-optim-3d-models/assets/10905600/8f3800a6-cf24-4a9d-9cc2-b6ec907723d3">
 
-## How to use
+4. Check `Object: Optimize 3D models`.
+
+    <img width="411" alt="image" src="https://github.com/HidenobuTokuda/blender-addon-optim-3d-models/assets/10905600/a0519273-09ef-4277-8c7b-838d39ca8698">
+
+
+## How to use (example of merging texture images)
 1. Select multiple objects whose texture images you want to merge in Outliner
 2. Right click
 3. Select `Merge texture images`
